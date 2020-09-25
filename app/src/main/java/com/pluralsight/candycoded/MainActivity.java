@@ -4,11 +4,13 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -71,6 +73,16 @@ public class MainActivity extends AppCompatActivity {
                         //adapter.changeCursor(cursor);
                     }
                 });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String infoIntent = new String();
+        Intent view = new Intent(infoIntent);
+        view.setAction(Intent.ACTION_VIEW);
+        new Intent(this, InfoActivity.class);
+        startActivity(view);
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
